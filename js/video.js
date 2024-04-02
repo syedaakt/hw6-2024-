@@ -13,6 +13,7 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() { 	
 	video.play()
   	console.log("Play Video");
+	document.querySelector("#volume").innerHTML = "100%";
  });
 
  document.querySelector("#pause").addEventListener("click", function() {
@@ -23,15 +24,13 @@ document.querySelector("#play").addEventListener("click", function() {
  document.querySelector("#slower").addEventListener("click", function() {
 	video.playbackRate *= .9;
 	console.log("New video speed (slowed down): " + video.playbackRate);
-	slowDownCount++;
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
-	if (slowDownCount > 0) {
-		video.playbackRate /= Math.pow(0.9, slowDownCount);
-		console.log("New video speed (sped up): " + video.playbackRate)
-		slowDownCount = Math.max(0, slowDownCount - 1);
-	}
+
+	video.playbackRate /= .9;
+	console.log("New video speed (sped up): " + video.playbackRate);
+
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
