@@ -1,23 +1,21 @@
 var video;
-let slowDownCount = 0;
 
 window.addEventListener("load", function() {
-	console.log("Good job opening the window")
+	console.log("Good job opening the window");
 	video = document.getElementById("player1");
 	video.autoplay = false;
 	video.loop=false;
-	console.log("autoplay is set to" + video.autoplay)
-	console.log("autoplay is set to" + video.loop)
+	console.log("autoplay is set to" + video.autoplay);
+	console.log("autoplay is set to" + video.loop);
 });
 
 document.querySelector("#play").addEventListener("click", function() { 	
-	video.play()
+	video.play();
   	console.log("Play Video");
-	document.querySelector("#volume").innerHTML = "100%";
  });
 
  document.querySelector("#pause").addEventListener("click", function() {
- 	video.pause()
+ 	video.pause();
  	console.log("Pause Video");
  });
 
@@ -42,14 +40,14 @@ document.querySelector("#skip").addEventListener("click", function() {
 document.querySelector("#mute").addEventListener("click", function() {
 	video.muted = !video.muted;
 	document.querySelector("#mute").textContent = video.muted? 'Unmute' : 'Mute';
-	console.log("video is " + video.muted )
+	console.log("video is " + video.muted );
 });
 
 document.querySelector("#slider").addEventListener("change", function() {
 	current = document.querySelector("#slider").value/100;
 	video.volume = current;
-	document.querySelector("#volume").innerHTML = 100*(video.volume)+"%"
-	console.log("current volume" + video.volume)
+	document.querySelector("#volume").innerHTML = 100*(video.volume)+"%";
+	console.log("current volume" + video.volume);
 });
 
 document.querySelector("#vintage").addEventListener("click", function() {
