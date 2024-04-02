@@ -1,8 +1,6 @@
 var video;
 let slowDownCount = 0;
-const slider = document.querySelector('label[for="slider"]');
-const volumeLevel = document.getElementById('volume');
-volumeLevel.textContent = slider.value;
+
 window.addEventListener("load", function() {
 	console.log("Good job opening the window")
 	video = document.getElementById("player1");
@@ -32,6 +30,7 @@ document.querySelector("#faster").addEventListener("click", function() {
 	if (slowDownCount > 0) {
 		video.playbackRate /= Math.pow(0.9, slowDownCount);
 		console.log("New video speed (sped up): " + video.playbackRate)
+		slowDownCount = Math.max(0, slowDownCount - 1);
 	}
 });
 
@@ -43,6 +42,7 @@ document.querySelector("#skip").addEventListener("click", function() {
 
 document.querySelector("#mute").addEventListener("click", function() {
 	video.muted = !video.muted;
+	document.querySelector("#mute").textContent = video.muted? 'Unmute' : 'Mute';
 	console.log("video is " + video.muted )
 });
 
